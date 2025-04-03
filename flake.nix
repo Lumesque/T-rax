@@ -64,17 +64,18 @@
         };
 
         python-packages = [
-          (pkgs.python27.withPackages (pp: [
-            pp.qtpy
-            pp.numpy
-            pp.scipy
-            pp.pyqtgraph
-            pp.dateutil
-            pp.h5py
-            pp.mock
-            (pkgs.python27Packages.buildPythonPackage lmfit-py)
-          ]))
+          (py27Dep "qtpy")
+          (py27Dep "numpy")
+          (py27Dep "scipy")
+          (py27Dep "pyqtgraph")
+          (py27Dep "dateutil")
+          (py27Dep "h5py")
+          (py27Dep "mock")
+          (pkgs.python27Packages.buildPythonPackage lmfit-py)
         ];
+
+        python-derivation = (pkgs.python27.withPackages (pp: python-packages));
+
         app = pkgs.python27Packages.buildPythonApplication {
           name = "T-Rax";
           pname = "t-rax";
@@ -92,6 +93,7 @@
         python-build-pkgs = [ pkgs.qt5.full app ];
       in {
         packages.default = app;
+        packages.dev = python-derivation;
 
         devShells.default = pkgs.mkShell { packages = app; };
 
