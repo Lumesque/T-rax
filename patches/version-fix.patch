@@ -1,5 +1,5 @@
 diff --git a/t_rax/version.py b/t_rax/version.py
-index ee362e1..f2b612f 100644
+index ee362e1..4ee4729 100644
 --- a/t_rax/version.py
 +++ b/t_rax/version.py
 @@ -15,11 +15,12 @@ def get_version():
@@ -7,8 +7,9 @@ index ee362e1..f2b612f 100644
              with open(os.path.join(dir_path, '__version__'), 'r') as fp:
                  version = fp.readline()
 -        except ImportError:
+-            version = "0.5.0"
 +        except Exception:
-             version = "0.5.0"
++            version = "1.4.2"
      else:
 +        pass
          # trying to freeze the current version into a python file which gets loaded in case it is not accessible

@@ -45,6 +45,14 @@ The program itself can then be run by going into the "t-rax" directory and type:
     
     python run_t-rax.py
 
+Running on Nix
+===
+
+Run command below
+```bash
+$ nix run 'github:Lumesque/T-Rax' -- <args>
+```
+
 
 
 
