@@ -1,0 +1,15 @@
+diff --git a/t_rax/widget/HistogramLUTItem.py b/t_rax/widget/HistogramLUTItem.py
+index 67f22c2..8d2b34e 100644
+--- a/t_rax/widget/HistogramLUTItem.py
++++ b/t_rax/widget/HistogramLUTItem.py
+@@ -23,7 +23,9 @@ from __future__ import absolute_import
+ GraphicsWidget displaying an image histogram along with gradient editor. Can be used to adjust the appearance of images.
+ """
+ 
+-from pyqtgraph.Qt import QtWidgets, QtCore
++#from pyqtgraph.Qt import QtWidgets, QtCore
++from pyqtgraph.Qt import QtCore
++from qtpy import QtWidgets
+ import pyqtgraph.functions as fn
+ from pyqtgraph.graphicsItems.GraphicsWidget import GraphicsWidget
+ from pyqtgraph.graphicsItems.ViewBox import *
