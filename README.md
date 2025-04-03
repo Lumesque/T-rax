@@ -53,6 +53,14 @@ Run command below
 $ nix run 'github:Lumesque/T-Rax' -- <args>
 ```
 
+If you want to manually run trax, git clone the repository, patch the corresponding files, and run
+```bash
+$ git clone https://github.com/Lumesque/T-Rax
+$ git apply ./patches/*.patch
+$ nix develop '.#dev' -c $SHELL
+$ python2 ./run_t_rax.py
+```
+
 
 
 
