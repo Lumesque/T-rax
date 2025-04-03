@@ -76,7 +76,7 @@
     ]))];
     app = pkgs.python27Packages.buildPythonApplication {
       name = "T-Rax";
-      pname = "T-Rax";
+      pname = "t-rax";
       src = ./.;
       pyproject = false;
       nativeBuildInputs = python-packages;
@@ -91,13 +91,10 @@
     python-build-pkgs = [ pkgs.qt5.full app ];
   in
   {
-    packages.default = pkgs.symlinkJoin {
-        name = "nix-shell-dev-env";
-        paths = python-packages ++ [pkgs.cowsay pkgs.python27Packages.versioneer] ++ python-build-pkgs ;
-    };
-
+    packages.default = app;
+    
     devShells.default = pkgs.mkShell {
-      packages = python-packages ++ [pkgs.cowsay] ++ python-build-pkgs;
+        packages = app;
     };
   });
 }
