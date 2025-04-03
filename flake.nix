@@ -96,5 +96,9 @@
     devShells.default = pkgs.mkShell {
         packages = app;
     };
+
+    devShells.dev = pkgs.mkShell {
+        packages = python-packages;
+    };
   });
 }
